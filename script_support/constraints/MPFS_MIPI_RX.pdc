@@ -1,0 +1,159 @@
+set_io -port_name GPIO_MIPI_RX_CKP \
+    -pin_name A12 \
+    -fixed true \
+    -io_std MIPI25 \
+    -DIRECTION INPUT
+    
+set_io -port_name GPIO_MIPI_RX_CKN \
+    -pin_name B12 \
+    -fixed true \
+    -DIRECTION INPUT
+
+set_io -port_name {GPIO_MIPI_RX_P[0]} \
+    -pin_name C11 \
+    -fixed true \
+    -io_std MIPI25 \
+    -DIRECTION INPUT
+
+set_io -port_name {GPIO_MIPI_RX_N[0]} \
+    -pin_name B11 \
+    -fixed true \
+    -io_std MIPI25 \
+    -DIRECTION INPUT    
+
+set_io -port_name {GPIO_MIPI_RX_P[1]} \
+    -pin_name B10 \
+    -fixed true \
+    -io_std MIPI25 \
+    -DIRECTION INPUT
+
+set_io -port_name {GPIO_MIPI_RX_N[1]} \
+    -pin_name A10 \
+    -fixed true \
+    -io_std MIPI25 \
+    -DIRECTION INPUT   
+   
+set_io -port_name CAM_EN_B0 \
+    -pin_name Y14 \
+    -fixed true \
+    -io_std LVCMOS18 \
+    -DIRECTION OUTPUT   
+
+set_io -port_name CAM_GPIO_B0 \
+    -pin_name Y17 \
+    -fixed true \
+    -DIRECTION INOUT \
+    -io_std LVCMOS18 \
+    -RES_PULL UP
+ 
+set_io -port_name CAM_I2C_SDA_B0 \
+    -pin_name T20 \
+    -fixed true \
+    -DIRECTION INOUT \
+    -io_std LVCMOS18 \
+    -RES_PULL UP
+
+set_io -port_name CAM_I2C_SCL_B0 \
+    -pin_name T21 \
+    -fixed true \
+    -DIRECTION INOUT \
+    -io_std LVCMOS18 \
+    -RES_PULL UP
+    
+    
+#set_io -port_name CAM1_RST  \
+    #-pin_name K3            \
+    #-fixed true             \
+    #-io_std LVCMOS25        \
+    #-DIRECTION OUTPUT
+#
+#
+#set_io -port_name {CAM1_RXD[0]}  \
+    #-pin_name L12                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD[1]}  \
+    #-pin_name L10                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD[2]}  \
+    #-pin_name M11                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD[3]}  \
+    #-pin_name N13                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD_N[0]}  \
+    #-pin_name M12                  \
+    #-fixed true                    \
+    #-io_std MIPI25                 \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD_N[1]}  \
+    #-pin_name K10                  \
+    #-fixed true                    \
+    #-io_std MIPI25                 \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD_N[2]}  \
+    #-pin_name N11                  \
+    #-fixed true                    \
+    #-io_std MIPI25                 \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name {CAM1_RXD_N[3]}  \
+    #-pin_name N12                  \
+    #-fixed true                    \
+    #-io_std MIPI25                 \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name CAM1_RX_CLK_N  \
+    #-pin_name N14                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name CAM1_RX_CLK_P  \
+    #-pin_name M14                \
+    #-fixed true                  \
+    #-io_std MIPI25               \
+    #-DIRECTION INPUT
+#
+#
+#set_io -port_name CAM1_SCL  \
+    #-pin_name K7            \
+    #-fixed true             \
+    #-io_std LVCMOS25        \
+    #-DIRECTION INOUT
+#
+#
+#set_io -port_name CAM1_SDA  \
+    #-pin_name J8            \
+    #-fixed true             \
+    #-io_std LVCMOS25        \
+    #-DIRECTION INOUT
+#
+#
+#set_io -port_name CAM_CLK_EN  \
+    #-pin_name K5              \
+    #-fixed true               \
+    #-io_std LVCMOS25          \
+    #-DIRECTION OUTPUT    
