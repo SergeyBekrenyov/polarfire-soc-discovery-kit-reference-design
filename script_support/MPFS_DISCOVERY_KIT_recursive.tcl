@@ -14,6 +14,9 @@ source components/CORERESET.tcl
 source components/INIT_MONITOR.tcl 
 source components/PF_CCC_C0.tcl 
 source components/CLOCKS_AND_RESETS.tcl 
+source components/MIPI_TRAINING_LITE_C0.tcl
+source components/PF_IOD_GENERIC_MIPI_RX0.tcl
+source components/MIPI_RX_SUBSYS.tcl
 source components/DMA_CONTROLLER.tcl 
 source components/DMA_INITIATOR.tcl 
 source components/FIC0_INITIATOR.tcl 

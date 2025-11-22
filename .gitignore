@@ -24,3 +24,4 @@ script_support/additional_configurations/SPI_LOOPBACK/DISCOVERY_MSS_SPI_LOOPBACK
 *.job
 *.digest
 *.bkp
+*.bak
