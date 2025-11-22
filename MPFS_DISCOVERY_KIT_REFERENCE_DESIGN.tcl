@@ -235,7 +235,9 @@ if { [file exists $project_dir/$project_name.prjx] } {
 			-io_pdc "${constraint_path}/MPFS_DISCOVERY_UARTS.pdc" \
 			-io_pdc "${constraint_path}/MPFS_DISCOVERY_7_SEG.pdc" \
 			-io_pdc "${constraint_path}/MPFS_DISCOVERY_I2C_LOOPBACK.pdc" \
+			-io_pdc "${constraint_path}/MPFS_MIPI_RX.pdc" \
 			-fp_pdc "${constraint_path}/SW_PLL.pdc"  
+			
 		
 		organize_tool_files \
 			-tool {PLACEROUTE} \
@@ -246,6 +248,7 @@ if { [file exists $project_dir/$project_name.prjx] } {
 			-file "${project_dir}/constraint/io/MPFS_DISCOVERY_RPi.pdc" \
 			-file "${project_dir}/constraint/io/MPFS_DISCOVERY_UARTS.pdc" \
 			-file "${project_dir}/constraint/io/MPFS_DISCOVERY_7_SEG.pdc" \
+			-file "${project_dir}/constraint/io/MPFS_MIPI_RX.pdc" \
 			-file "${project_dir}/constraint/fp/SW_PLL.pdc" \
 			-module {MPFS_DISCOVERY_KIT::work} \
 			-input_type {constraint}        
@@ -299,6 +302,10 @@ if { [file exists $project_dir/$project_name.prjx] } {
 		save_project 
 		sd_reset_layout -sd_name {CLOCKS_AND_RESETS}
 		save_smartdesign -sd_name {CLOCKS_AND_RESETS}
+		sd_reset_layout -sd_name {MIPI_RX_SUBSYS}
+		save_smartdesign -sd_name {MIPI_RX_SUBSYS}
+		sd_reset_layout -sd_name {IMX296_IF_TOP}
+		save_smartdesign -sd_name {IMX296_IF_TOP}
 		sd_reset_layout -sd_name {FIC_0_PERIPHERALS}
 		save_smartdesign -sd_name {FIC_0_PERIPHERALS}
 		sd_reset_layout -sd_name {CORE_I2C_C0_0_WRAPPER}
