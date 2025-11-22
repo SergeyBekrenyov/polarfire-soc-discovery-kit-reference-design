@@ -163,6 +163,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_8_IO} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_9_IO} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_0_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_0_SDA} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SCL} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SDA} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MDIO_PAD} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0} -port_direction {INOUT} -port_is_pad {1}
@@ -628,6 +630,18 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C_0_SDA_BIBUF:D} -
 
 
 
+# Add I2C_1_SCL_BIBUF instance
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {I2C_1_SCL_BIBUF}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C_1_SCL_BIBUF:D} -value {GND}
+
+
+
+# Add I2C_1_SDA_BIBUF instance
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {I2C_1_SDA_BIBUF}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C_1_SDA_BIBUF:D} -value {GND}
+
+
+
 # Add MDIO instance
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {MDIO}
 
@@ -778,6 +792,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SCL_BIBUF:Y" "MPFS_DISCOV
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA" "I2C_0_SDA_BIBUF:PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA_BIBUF:E" "MPFS_DISCOVERY_KIT_MSS_0:I2C_0_SDA_OE_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA_BIBUF:Y" "MPFS_DISCOVERY_KIT_MSS_0:I2C_0_SDA_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL" "I2C_1_SCL_BIBUF:PAD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL_BIBUF:E" "MPFS_DISCOVERY_KIT_MSS_0:I2C_1_SCL_OE_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL_BIBUF:Y" "MPFS_DISCOVERY_KIT_MSS_0:I2C_1_SCL_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA" "I2C_1_SDA_BIBUF:PAD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA_BIBUF:E" "MPFS_DISCOVERY_KIT_MSS_0:I2C_1_SDA_OE_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA_BIBUF:Y" "MPFS_DISCOVERY_KIT_MSS_0:I2C_1_SDA_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MAC_0_MDC" "MPFS_DISCOVERY_KIT_MSS_0:MAC_0_MDC_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO:D" "MPFS_DISCOVERY_KIT_MSS_0:MAC_0_MDO_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO:E" "MPFS_DISCOVERY_KIT_MSS_0:MAC_0_MDO_OE_M2F" }

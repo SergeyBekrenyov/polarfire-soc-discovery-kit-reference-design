@@ -74,6 +74,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_RESETN} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_TXDIS_SRESETN} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {WE_N} -port_direction {OUT} -port_is_pad {1}
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_I2C_SCL_B0} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_I2C_SDA_B0} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_I2C_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_I2C_SDA} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_CLK} -port_direction {INOUT} -port_is_pad {1}
@@ -154,30 +156,30 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_PERIPHERALS_0:PLL0_SW_
 # Add MSS_WRAPPER_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {MSS_WRAPPER} -instance_name {MSS_WRAPPER_0}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[0:0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[1:1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[2:2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[3:3]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[4:4]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[5:5]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[6:6]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[7:7]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[8:8]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[9:9]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[10:10]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[11:11]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[12:12]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[13:13]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[14:14]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[15:15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[1:1]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[1:1]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[4:4]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[58:16]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[58:16]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[59:59]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[5:5]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[5:5]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[60:60]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[61:61]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[62:62]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[63:63]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[1:1]} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[5:5]} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_F2M[58:16]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[6:6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[7:7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[8:8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MSS_WRAPPER_0:MSS_INT_F2M} -pin_slices {[9:9]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:GPIO_2_F2M_24} -value {GND}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:MSS_INT_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {MSS_WRAPPER_0:FIC_1_AXI4_INITIATOR}
@@ -227,6 +229,8 @@ sd_connect_net_to_pins -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_2
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ACT_N" "MSS_WRAPPER_0:ACT_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BG0" "MSS_WRAPPER_0:BG0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SCL_B0" "MSS_WRAPPER_0:I2C_1_SCL" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SDA_B0" "MSS_WRAPPER_0:I2C_1_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAS_N" "MSS_WRAPPER_0:CAS_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK0" "MSS_WRAPPER_0:CK0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK0_N" "MSS_WRAPPER_0:CK0_N" }
@@ -247,11 +251,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP1" "MSS_WRAPPER_0:MSS_INT_F2
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP2" "MSS_WRAPPER_0:MSS_INT_F2M[7:7]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP3" "MSS_WRAPPER_0:MSS_INT_F2M[8:8]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP4" "MSS_WRAPPER_0:MSS_INT_F2M[9:9]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:RXRDY" "MSS_WRAPPER_0:MSS_INT_F2M[11:11]"  }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:TXRDY" "MSS_WRAPPER_0:MSS_INT_F2M[12:12]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:PARITY_ERR" "MSS_WRAPPER_0:MSS_INT_F2M[13:13]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:OVERFLOW" "MSS_WRAPPER_0:MSS_INT_F2M[14:14]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:FRAMING_ERR" "MSS_WRAPPER_0:MSS_INT_F2M[15:15]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP5" "MSS_WRAPPER_0:GPIO_2_F2M_25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "MSS_WRAPPER_0:GPIO_2_F2M_26" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP7" "MSS_WRAPPER_0:GPIO_2_F2M_27" }
@@ -262,6 +261,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:COREI2C_C0_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:CORE_I2C_C0_INT" "MSS_WRAPPER_0:MSS_INT_F2M[4:4]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:CoreUARTapb_RX" "MBUS_UART_TXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:CoreUARTapb_TX" "MBUS_UART_RXD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:FRAMING_ERR" "MSS_WRAPPER_0:MSS_INT_F2M[15:15]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:GPIO_OUT[0:0]" "OR2_LED1:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:GPIO_OUT[1:1]" "OR2_LED2:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:GPIO_OUT[2:2]" "OR2_LED3:A" }
@@ -274,10 +274,14 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:IHC_MP_APP_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:IHC_MP_APP_U54_2_IRQ" "MSS_WRAPPER_0:MSS_INT_F2M[61:61]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:IHC_MP_APP_U54_3_IRQ" "MSS_WRAPPER_0:MSS_INT_F2M[60:60]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:IHC_MP_APP_U54_4_IRQ" "MSS_WRAPPER_0:MSS_INT_F2M[59:59]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:OVERFLOW" "MSS_WRAPPER_0:MSS_INT_F2M[14:14]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:PARITY_ERR" "MSS_WRAPPER_0:MSS_INT_F2M[13:13]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:PWM_0" "MBUS_PWM" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:RXRDY" "MSS_WRAPPER_0:MSS_INT_F2M[11:11]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:SPISCLKO" "SPISCLKO" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:SPISDO" "SPISDO" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:SPISS" "SPISS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:TXRDY" "MSS_WRAPPER_0:MSS_INT_F2M[12:12]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_RXD" "MSS_WRAPPER_0:MMUART_0_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_TXD" "MSS_WRAPPER_0:MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "MSS_WRAPPER_0:GPIO_1_20_OUT" }
