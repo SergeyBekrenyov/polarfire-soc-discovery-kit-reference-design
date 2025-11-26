@@ -1,37 +1,37 @@
-set_io -port_name GPIO_MIPI_RX_CKP \
+set_io -port_name MIPI_RX_CKP \
     -pin_name A12 \
     -fixed true \
     -io_std MIPI25 \
     -DIRECTION INPUT
     
-set_io -port_name GPIO_MIPI_RX_CKN \
+set_io -port_name MIPI_RX_CKN \
     -pin_name B12 \
     -fixed true \
     -DIRECTION INPUT
 
-set_io -port_name {GPIO_MIPI_RX_P[0]} \
+set_io -port_name {MIPI_RX_P[0]} \
     -pin_name C11 \
     -fixed true \
     -io_std MIPI25 \
     -DIRECTION INPUT
 
-set_io -port_name {GPIO_MIPI_RX_N[0]} \
+set_io -port_name {MIPI_RX_N[0]} \
     -pin_name B11 \
     -fixed true \
     -io_std MIPI25 \
     -DIRECTION INPUT    
 
-set_io -port_name {GPIO_MIPI_RX_P[1]} \
-    -pin_name B10 \
-    -fixed true \
-    -io_std MIPI25 \
-    -DIRECTION INPUT
+#set_io -port_name {GPIO_MIPI_RX_P[1]} \
+#    -pin_name B10 \
+#    -fixed true \
+#    -io_std MIPI25 \
+#    -DIRECTION INPUT
 
-set_io -port_name {GPIO_MIPI_RX_N[1]} \
-    -pin_name A10 \
-    -fixed true \
-    -io_std MIPI25 \
-    -DIRECTION INPUT   
+#set_io -port_name {GPIO_MIPI_RX_N[1]} \
+#    -pin_name A10 \
+#    -fixed true \
+#    -io_std MIPI25 \
+#    -DIRECTION INPUT   
    
 set_io -port_name CAM_EN_B0 \
     -pin_name Y14 \

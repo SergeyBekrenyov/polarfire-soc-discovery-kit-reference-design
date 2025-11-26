@@ -70,6 +70,10 @@ if {[info exists I2C_LOOPBACK]} {
     set project_name "MPFS_DISCOVERY_Vectorblox"
     set project_dir "$local_dir/MPFS_DISCOVERY_Vectorblox"
 	set ALTCONFIG 0
+} elseif {[info exists MIPI]} {
+    set project_name "MPFS_DISCOVERY_MIPI"
+    set project_dir "$local_dir/MPFS_DISCOVERY_MIPI"
+	set ALTCONFIG 0	
 } elseif {[info exists SMARTHLS]} {
     set project_name "Discovery_SoC"
     set project_dir "$local_dir/soc"
