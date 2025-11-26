@@ -44,4 +44,5 @@ source components/corepwm_C0.tcl
 source components/FIC_3_PERIPHERALS.tcl 
 source components/MSS_WRAPPER.tcl 
 source components/MPFS_DISCOVERY_KIT.tcl 
+source components/MPFS_DISCOVERY_KIT_MIPI.tcl
 build_design_hierarchy

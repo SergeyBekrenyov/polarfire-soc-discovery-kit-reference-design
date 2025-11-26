@@ -223,7 +223,12 @@ if { [file exists $project_dir/$project_name.prjx] } {
 		cd ./script_support/
 		safe_source MPFS_DISCOVERY_KIT_recursive.tcl
 		cd ../
-		set_root -module {MPFS_DISCOVERY_KIT::work} 
+		if {[info exists MIPI]} {
+		#	puts "MIPI constraints"
+			set_root -module {MPFS_DISCOVERY_KIT_MIPI::work} 
+		} else {
+			set_root -module {MPFS_DISCOVERY_KIT::work} 
+		}
 
 		#
 		# // Import I/O constraints
@@ -242,7 +247,8 @@ if { [file exists $project_dir/$project_name.prjx] } {
 			-io_pdc "${constraint_path}/MPFS_MIPI_RX.pdc" \
 			-fp_pdc "${constraint_path}/SW_PLL.pdc"  
 			
-		
+		if {[info exists MIPI]} {
+		#	puts "MIPI constraints"
 		organize_tool_files \
 			-tool {PLACEROUTE} \
 			-file "${project_dir}/constraint/io/MPFS_DISCOVERY_KIT_BANK_SETTINGS.pdc" \
@@ -254,9 +260,22 @@ if { [file exists $project_dir/$project_name.prjx] } {
 			-file "${project_dir}/constraint/io/MPFS_DISCOVERY_7_SEG.pdc" \
 			-file "${project_dir}/constraint/io/MPFS_MIPI_RX.pdc" \
 			-file "${project_dir}/constraint/fp/SW_PLL.pdc" \
-			-module {MPFS_DISCOVERY_KIT::work} \
+			-module {MPFS_DISCOVERY_KIT_MIPI::work} \
 			-input_type {constraint}        
-			
+		} else {
+			organize_tool_files \
+				-tool {PLACEROUTE} \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_KIT_BANK_SETTINGS.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_KIT_BOARD_MISC.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_MAC.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_mikroBUS.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_RPi.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_UARTS.pdc" \
+				-file "${project_dir}/constraint/io/MPFS_DISCOVERY_7_SEG.pdc" \
+				-file "${project_dir}/constraint/fp/SW_PLL.pdc" \
+				-module {MPFS_DISCOVERY_KIT::work} \
+				-input_type {constraint}  
+		}	
 		#
 		# // Build hierarchy before progressing
 		#
@@ -266,6 +285,7 @@ if { [file exists $project_dir/$project_name.prjx] } {
 		#
 		# // Apply additional design configurations
 		#
+
 
 		if {[info exists BFM_SIMULATION]} {
 			safe_source script_support/stimulus/Test_bench.tcl
@@ -322,7 +342,10 @@ if { [file exists $project_dir/$project_name.prjx] } {
 		save_smartdesign -sd_name {MSS_WRAPPER}
 		sd_reset_layout -sd_name {MPFS_DISCOVERY_KIT}
 		save_smartdesign -sd_name {MPFS_DISCOVERY_KIT}
-
+		if {[info exists MIPI]} {
+			sd_reset_layout -sd_name {MPFS_DISCOVERY_KIT_MIPI}
+			save_smartdesign -sd_name {MPFS_DISCOVERY_KIT_MIPI}
+		}
 		# 
 		# Compile and integrate the SmartHLS code
 		#
@@ -560,11 +583,11 @@ if {[info exists SYNTHESIZE]} {
 }
 
 if {[info exists HSS_UPDATE]} {
-    if !{[file exists "./script_support/hss-envm-wrapper.mpfs-disco-kit.hex"]} {
-        if {[catch    {exec wget https://github.com/polarfire-soc/hart-software-services/releases/latest/download/hss-envm-wrapper.mpfs-disco-kit.hex -P ./script_support/} issue]} {
+    if !{[file exists "./script_support/hss/hss-envm-wrapper.mpfs-disco-kit.hex"]} {
+        if {[catch    {exec wget https://github.com/polarfire-soc/hart-software-services/releases/latest/download/hss-envm-wrapper.mpfs-disco-kit.hex -P ./script_support/hss} issue]} {
         }
     }
-    create_eNVM_config "$local_dir/script_support/components/MSS/ENVM.cfg" "$local_dir/script_support/hss-envm-wrapper.mpfs-disco-kit.hex"
+    create_eNVM_config "$local_dir/script_support/components/MSS/ENVM.cfg" "$local_dir/script_support/hss/hss-envm-wrapper.mpfs-disco-kit.hex"
     run_tool -name {GENERATEPROGRAMMINGDATA}
     configure_envm -cfg_file {script_support/components/MSS/ENVM.cfg}
 }

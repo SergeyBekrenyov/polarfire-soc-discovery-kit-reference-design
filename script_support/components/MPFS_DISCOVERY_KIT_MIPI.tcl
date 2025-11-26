@@ -1,5 +1,5 @@
-# Creating SmartDesign "MPFS_DISCOVERY_KIT"
-set sd_name {MPFS_DISCOVERY_KIT}
+# Creating SmartDesign "MPFS_DISCOVERY_KIT_MIPI"
+set sd_name {MPFS_DISCOVERY_KIT_MIPI}
 create_smartdesign -sd_name ${sd_name}
 
 # Disable auto promotion of pins of type 'pad'
@@ -411,5 +411,5 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PERIPHERALS_0:APB_MMASTER
 auto_promote_pad_pins -promote_all 1
 # Save the SmartDesign 
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign "MPFS_DISCOVERY_KIT"
+# Generate SmartDesign "MPFS_DISCOVERY_KIT_MIPI"
 generate_component -component_name ${sd_name}
