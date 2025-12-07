@@ -25,6 +25,10 @@ source components/PF_CCC_C1.tcl
 source components/mipicsi2rxdecoderPF_C0.tcl
 source components/IMX296_IF_TOP.tcl
 #
+source components/RGBtoYCbCr_C0.tcl
+source components/Bayer_Interpolation_C0.tcl
+source components/Video_Pipeline.tcl
+#
 source components/DMA_CONTROLLER.tcl 
 source components/DMA_INITIATOR.tcl 
 source components/FIC0_INITIATOR.tcl 

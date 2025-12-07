@@ -133,7 +133,6 @@ sd_invert_pins -sd_name ${sd_name} -pin_names {DIP6}
 sd_invert_pins -sd_name ${sd_name} -pin_names {DIP7}
 sd_invert_pins -sd_name ${sd_name} -pin_names {DIP8}
 sd_invert_pins -sd_name ${sd_name} -pin_names {SWITCH1}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {CAM_EN_B0} -value {VCC}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MBUS_AN} -value {VCC}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {MBUS_RST} -value {VCC}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_RESETN} -value {VCC}
@@ -166,30 +165,6 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {FIC_3_PERIPHERALS_0:GPIO_OUT
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FIC_3_PERIPHERALS_0:GPIO_OUT} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FIC_3_PERIPHERALS_0:GPIO_OUT} -pin_slices {[6:6]}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_PERIPHERALS_0:PLL0_SW_DRI}
-
-
-
-# Add IMX296_IF_TOP_0 instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {IMX296_IF_TOP} -instance_name {IMX296_IF_TOP_0}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[0:0]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[0:0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[1:1]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[1:1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[2:2]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[2:2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[3:3]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[3:3]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[4:4]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[4:4]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[5:5]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[5:5]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[6:6]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[6:6]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[7:7]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:DATA_O[7:7]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[8:8]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {IMX296_IF_TOP_0:DATA_O} -pin_slices {[9:9]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {IMX296_IF_TOP_0:AXI4L_MIPI}
 
 
 
@@ -263,6 +238,23 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {OR3} -instance_name {OR3_L
 
 
 
+# Add Video_Pipeline_0 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {Video_Pipeline} -instance_name {Video_Pipeline_0}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[0:0]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {Video_Pipeline_0:Y_OUT[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[1:1]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {Video_Pipeline_0:Y_OUT[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[2:2]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {Video_Pipeline_0:Y_OUT[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[4:4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[5:5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[6:6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {Video_Pipeline_0:Y_OUT} -pin_slices {[7:7]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {Video_Pipeline_0:C_OUT}
+
+
+
 # Add scalar net connections
 sd_create_scalar_net -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_21}
 sd_connect_net_to_pins -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_21} -pin_names {"MSS_WRAPPER_0:GPIO_2_M2F_21" "OR3_LED5:B" }
@@ -270,8 +262,9 @@ sd_connect_net_to_pins -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_2
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ACT_N" "MSS_WRAPPER_0:ACT_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BG0" "MSS_WRAPPER_0:BG0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_1:PAD" "CAM_GPIO_B0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SCL_B0" "MSS_WRAPPER_0:I2C_1_SCL" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SDA_B0" "MSS_WRAPPER_0:I2C_1_SDA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_EN_B0" "DIP1" "MSS_WRAPPER_0:MSS_INT_F2M[6:6]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SCL_B0" "MSS_WRAPPER_0:I2C_0_SCL" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_I2C_SDA_B0" "MSS_WRAPPER_0:I2C_0_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAS_N" "MSS_WRAPPER_0:CAS_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK0" "MSS_WRAPPER_0:CK0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK0_N" "MSS_WRAPPER_0:CK0_N" }
@@ -280,17 +273,16 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:EXT_RST_N" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:FIC_0_CLK" "FIC_0_PERIPHERALS_0:ACLK" "MSS_WRAPPER_0:FIC_0_ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:FIC_1_CLK" "MSS_WRAPPER_0:FIC_1_ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:FIC_2_CLK" "MSS_WRAPPER_0:FIC_2_ACLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:FIC_3_CLK" "FIC_3_PERIPHERALS_0:PCLK" "IMX296_IF_TOP_0:ACLK_I" "MSS_WRAPPER_0:FIC_3_PCLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:FIC_3_CLK" "FIC_3_PERIPHERALS_0:PCLK" "MSS_WRAPPER_0:FIC_3_PCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:MSS_DLL_LOCKS" "MSS_WRAPPER_0:MSS_DLL_LOCKS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:MSS_RESETN" "MSS_WRAPPER_0:MSS_RESET_N_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:MSS_TO_FABRIC_RESETN" "MSS_WRAPPER_0:MSS_RESET_N_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:REF_CLK_50MHz" "REF_CLK_50MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:RESETN_FIC_0_CLK" "FIC_0_PERIPHERALS_0:ARESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:RESETN_FIC_3_CLK" "FIC_3_PERIPHERALS_0:PRESETN" "IMX296_IF_TOP_0:ARESETN_I" "IMX296_IF_TOP_0:ARST_N" "IMX296_IF_TOP_0:INIT_DONE" "IMX296_IF_TOP_0:TRNG_RST_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:RESETN_FIC_3_CLK" "FIC_3_PERIPHERALS_0:PRESETN" "Video_Pipeline_0:INIT_DONE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CS0_N" "MSS_WRAPPER_0:CS0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP1" "MSS_WRAPPER_0:MSS_INT_F2M[6:6]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP2" "MSS_WRAPPER_0:MSS_INT_F2M[7:7]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP3" "MSS_WRAPPER_0:MSS_INT_F2M[8:8]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP2" "MSS_WRAPPER_0:MSS_INT_F2M[7:7]" "Video_Pipeline_0:TRNG_RST_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP3" "MSS_WRAPPER_0:MSS_INT_F2M[8:8]" "Video_Pipeline_0:ARST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP4" "MSS_WRAPPER_0:MSS_INT_F2M[9:9]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP5" "MSS_WRAPPER_0:GPIO_2_F2M_25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "MSS_WRAPPER_0:GPIO_2_F2M_26" }
@@ -327,17 +319,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_RXD" "MSS_WRAPPER_0
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_TXD" "MSS_WRAPPER_0:MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "MSS_WRAPPER_0:GPIO_1_20_OUT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_9_OUT" "MSS_WRAPPER_0:GPIO_1_9_OUT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:DATA_O[8:8]" "OR3_LED6:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:DATA_O[9:9]" "OR3_LED5:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:FRAME_START_O" "OR3_LED1:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:LINE_VALID_O" "OR3_LED2:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:MIPI_INTERRUPT_O" "OR3_LED3:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:PARALLEL_CLK" "OR3_LED4:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:PARALLEL_CLK_RESET_N" "OR3_LED7:C" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:RXD" "MIPI_RX_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:RXD_N" "MIPI_RX_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:RX_CLK_N" "MIPI_RX_CKN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX296_IF_TOP_0:RX_CLK_P" "MIPI_RX_CKP" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"LED1" "OR3_LED1:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"LED2" "OR3_LED2:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"LED3" "OR3_LED3:Y" }
@@ -346,13 +327,17 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"LED5" "OR3_LED5:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"LED6" "OR3_LED6:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"LED7" "OR3_LED7:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MAC_0_MDC" "MSS_WRAPPER_0:MAC_0_MDC" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2C_SCL" "MSS_WRAPPER_0:I2C_0_SCL" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2C_SDA" "MSS_WRAPPER_0:I2C_0_SDA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2C_SCL" "MSS_WRAPPER_0:I2C_1_SCL" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2C_SDA" "MSS_WRAPPER_0:I2C_1_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CLK" "MSS_WRAPPER_0:SPI_0_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CS" "MSS_WRAPPER_0:SPI_0_SS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_MISO" "MSS_WRAPPER_0:SPI_0_DI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_MOSI" "MSS_WRAPPER_0:SPI_0_DO" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO_PAD" "MSS_WRAPPER_0:MDIO_PAD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_RX_CKN" "Video_Pipeline_0:RX_CLK_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_RX_CKP" "Video_Pipeline_0:RX_CLK_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_RX_N" "Video_Pipeline_0:RXD_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_RX_P" "Video_Pipeline_0:RXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_RXD" "MSS_WRAPPER_0:MMUART_1_RXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_TXD" "MSS_WRAPPER_0:MMUART_1_TXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_4_RXD" "MSS_WRAPPER_0:MMUART_4_RXD" }
@@ -410,6 +395,13 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_WRAPPER_0:SPI_1_DI" "SPI_1_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_WRAPPER_0:SPI_1_DO" "SPI_1_DO" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_WRAPPER_0:SPI_1_SS0" "SPI_1_SS0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_WRAPPER_0:WE_N" "WE_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED1:C" "Video_Pipeline_0:FRAME_START_O" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED2:C" "Video_Pipeline_0:DATA_VALID_O" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED3:C" "Video_Pipeline_0:Y_OUT[3:3]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED4:C" "Video_Pipeline_0:Y_OUT[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED5:C" "Video_Pipeline_0:Y_OUT[6:6]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED6:C" "Video_Pipeline_0:Y_OUT[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"OR3_LED7:C" "Video_Pipeline_0:Y_OUT[7:7]" }
 
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"A" "MSS_WRAPPER_0:A" }
