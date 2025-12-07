@@ -7,6 +7,7 @@ set_io -port_name MIPI_RX_CKP \
 set_io -port_name MIPI_RX_CKN \
     -pin_name B12 \
     -fixed true \
+    -io_std MIPI25 \
     -DIRECTION INPUT
 
 set_io -port_name {MIPI_RX_P[0]} \
